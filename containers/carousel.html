@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/_reset.css">
+  <link rel="stylesheet" href="../css/_style.css">   
+  <style>
+    body {
+      height: 200vh;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      position: relative;
+      width: 390px;
+      height: 130px;
+      margin: auto;
+    }
+    .prev {
+      cursor: pointer;
+      border: 1px solid white;
+      border: none;
+      outline: none;
+      padding: 4px 15px;
+      position: absolute;
+      left: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .next {
+      cursor: pointer;
+      border: 1px solid white;
+      border: none;
+      outline: none;
+      padding: 4px 15px;
+      position: absolute;
+      right: -70px;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    .carousel {
+      overflow: hidden;
+    }
+    .carousel ul {
+      list-style: none;
+      width: 9999px;
+      padding: 0;
+      margin: 0;
+      transition: 0.5s;
+    }
+    li {
+      float: left;
+    }
+    img {
+      width: 130px;
+      height: 130px;
+    }
+  </style>
+
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <ul class="navigation">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="slider.html">Slider</a></li>
+          <li><a href="">Slider (Carousel)</a></li>
+          <li><a href="generatorCss.html">CSS - генератор</a></li>
+          <li><a href="contextJQuery.html">Context (jQuery)</a></li>
+          <li><a href="context.html">Condext (DOM)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <button class="prev">Prev</button>
+    <div class="carousel">
+      <ul>
+        <li><img src="../img/item1.jpg" alt=""></li>
+        <li><img src="../img/item2.jpg" alt=""></li>
+        <li><img src="../img/item3.jpg" alt=""></li>
+        <li><img src="../img/item4.jpg" alt=""></li>
+        <li><img src="../img/item5.jpg" alt=""></li>
+        <li><img src="../img/item6.jpg" alt=""></li>
+        <li><img src="../img/item7.jpg" alt=""></li>
+        <li><img src="../img/item8.jpg" alt=""></li>
+        <li><img src="../img/item9.jpg" alt=""></li>
+        <li><img src="../img/item3.jpg" alt=""></li>                                                                        
+      </ul>
+    </div>
+    <button class="next">Next</button>
+  </div>
+  <script>
+    var prev = document.querySelector('.prev');
+    var next = document.querySelector('.next');
+
+    function carousel() {
+      var ul = document.querySelector('ul');
+      var ulStyle = getComputedStyle(ul);
+
+      var li = document.querySelector('li');
+      var alList = document.querySelectorAll('li');
+      var width = 130;
+      var itemList = 3;
+
+      ul.style.marginLeft = ulStyle.marginLeft;
+
+      if (this.classList.contains('prev')) {
+        ul.style.marginLeft = Math.min(parseInt(ul.style.marginLeft) + 390, 0) + 'px';
+      } else if (this.classList.contains('next')) {
+        ul.style.marginLeft = Math.max(parseInt(ul.style.marginLeft) - 390, -width * (alList.length - itemList)) + 'px';
+      }
+    }
+
+    prev.addEventListener('click', carousel);
+    next.addEventListener('click', carousel);
+
+    window.onscroll = function(){
+      var pageY = window.pageYOffset;
+      //console.log(pageY);
+    };
+  </script>
+</body>
+</html>

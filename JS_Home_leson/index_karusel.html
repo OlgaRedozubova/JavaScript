@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .slider {
+      position: relative;
+      background-color: rgb(190, 187, 187);
+      border-radius: 3px;
+      border: 1px solid grey;
+      width: 400px;
+      margin: 0 auto;
+      overflow: hidden;
+      padding: 0 15px;
+    }
+    .container {
+      width: 9999px; 
+    }
+    .prev {
+      position: absolute;
+      left: 0;
+      top: 45%;
+    }
+    .next {
+      position: absolute;
+      right: 0;
+      top: 45%;
+    }
+  </style>
+</head>
+<body>
+  <p>
+    Напишите «Карусель» – ленту изображений, которую можно листать влево-вправо нажатием на стрелочки.
+  </p>  
+  <div class="slider">
+    <button class="prev"><</button>
+    <button class="next">></button>
+    <div class="container"> 
+      <img src="img/1.png" alt="">
+      <img src="img/2.png" alt="">
+      <img src="img/3.png" alt="">
+      <img src="img/4.png" alt="">
+      <img src="img/5.png" alt="">
+      <img src="img/6.png" alt="">
+      <img src="img/7.png" alt="">
+      <img src="img/8.png" alt="">
+      <img src="img/9.png" alt="">
+      <img src="img/10.png" alt="">
+    </div>
+    
+  </div>
+  <script>
+    /* конфигурация */
+    var width = 135; // ширина изображения
+    var count = 3; // количество изображений
+    var position = 0; // текущий сдвиг влево
+
+    var images = document.getElementsByTagName('img');
+    //var countImg = images.length;
+    var nextBtn = document.querySelector('.next');
+    var prevBtn = document.querySelector('.prev');
+    var container = document.getElementsByClassName('container');
+
+    //container[0].style.width =  135 * countImg + 'px';
+
+    nextBtn.onclick = function () {
+      // сдвиг вправо
+      // последнее передвижение вправо может быть не на 3, а на 2 или 1 элемент
+      position = Math.max(position - width * count,  -width * (images.length - count));
+      container[0].style.marginLeft = position + 'px';
+    }
+
+    prevBtn.onclick = function () {
+      position = Math.min(position + width * count, 0);
+      container[0].style.marginLeft = position + 'px';
+    }    
+  </script>
+</body>
+</html>

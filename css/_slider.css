@@ -1,0 +1,54 @@
+.container {
+  position: relative;
+  max-width: 700px;
+  margin: auto;
+}
+.wrapSlide {
+  min-height: 517px;
+  position: relative;
+}
+@keyframes fade {
+  from {
+    opacity: .4;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.itemSlide {
+  animation: fade;
+  animation-duration: 1.5s;
+  position: relative;
+}
+.text {}
+img {
+  max-width: 100%;
+}
+.dots {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  display: flex;
+  align-content: center;
+  background-color: white;
+}
+
+.dots .itemDot {
+  width: 20px;
+  height: 20px;
+  outline: none;
+  border-radius: 50%;
+  margin-left: 10px;
+}
+.itemDot:active{
+  background-color: red;
+}
+.navigation button {
+  cursor: pointer;
+  outline: none;
+  margin-right: 10px;
+  font-size: 16px;
+  border-radius: 3px;
+  border: 1px solid gray;
+  padding: 12px 25px;
+}

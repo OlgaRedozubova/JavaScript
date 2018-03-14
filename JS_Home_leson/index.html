@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .menu ul {
+      margin: 0;
+      list-style: none;
+      padding-left: 20px;
+      display: none;
+    }
+
+    .menu .title {
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .menu .title::before {
+      content: '▶ ';
+      font-size: 80%;
+      color: green;
+    }
+
+    .menu.open .title::before {
+      content: '▼ ';
+    }
+
+    .menu.open ul {
+      display: block;
+    }    
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      width: 500px;
+      margin: 0 auto;
+    }
+    .container .item {
+      background-color: rgb(179, 173, 173);
+      border-top: 2px solid rgb(51, 99, 51);
+      padding: 15px;
+    }
+    .itemTitle {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 18px;
+      font-weight: bold;
+    }
+    .itemTitle span {
+      color: rgb(53, 14, 14);
+      cursor: pointer;
+    }
+    .container p {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+  <p>Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text"</p>
+  <button>Нажмите, чтобы спрятать текст</button>
+  <p id="text">Текст</p>
+  <script>
+    //Используя JavaScript, сделайте так, чтобы при клике на кнопку исчезал элемент с id="text".
+    var button = document.getElementsByTagName("button")[0];
+    button.addEventListener('click', () => {document.getElementById("text").style.display = 'none'});
+  </script>
+  <p>Создайте кнопку, при клике на которую, она будет скрывать сама себя</p>
+  <button class="button2">Нажми, чтобы меня скрыть</button>
+  <script>
+    //Создайте кнопку, при клике на которую, она будет скрывать сама себя.
+    var button2 = document.getElementsByClassName('button2')[0];
+    button2.addEventListener('click', () => {button2.style.display='none'})    
+  </script>
+  <p>Создайте меню, которое раскрывается/сворачивается при клике:</p>
+  <div id="sweeties" class="menu">
+    <span class="title">Сладости (нажми меня)!</span>
+    <ul>
+      <li>Торт</li>
+      <li>Пончик</li>
+      <li>Пирожное</li>
+    </ul>
+  </div>
+  <script>
+    //Создайте меню, которое раскрывается/сворачивается при клике:
+    var menuElem = document.getElementById('sweeties');
+    var titleElem = menuElem.querySelector('.title');
+
+    titleElem.onclick = function() {
+      console.log(menuElem.classList);
+      menuElem.classList.toggle('open');
+    }    
+  </script>
+  <p>Есть список сообщений. Добавьте каждому сообщению по кнопке для его скрытия.</p>
+  <div class="container">
+    <div class="item">
+      <div class="itemTitle">
+        <p>Лошадь</p>
+        <span class="close">[x]</span>
+      </div>
+      <p class="itemText">
+          Домашняя лошадь — животное семейства непарнокопытных, одомашненный и единственный сохранившийся подвид дикой лошади, вымершей в дикой природе, за исключением небольшой популяции лошади Пржевальского.
+      </p>
+    </div>
+    <div class="item">
+      <div class="itemTitle">
+        <p>Осёл</p>
+        <span class="close">[x]</span>
+      </div>
+      <p class="itemText">
+          Домашний осёл или ишак — одомашненный подвид дикого осла, сыгравший важную историческую роль в развитии хозяйства и культуры человека. Все одомашненные ослы относятся к африканским ослам.
+      </p>
+    </div>
+    <div class="item">
+      <div class="itemTitle">
+        <p>Корова, а также пара слов о диком быке, о волах и о тёлках.</p>
+        <span class="close">[x]</span>
+      </div>
+      <p class="itemText">
+          Коро́ва — самка домашнего быка, одомашненного подвида дикого быка, парнокопытного жвачного животного семейства полорогих. Самцы вида называются быками, молодняк — телятами, кастрированные самцы — волами. Молодых (до первой стельности) самок называют тёлками.
+      </p>
+    </div>          
+  </div>
+  <script>
+    //Есть список сообщений. Добавьте каждому сообщению по кнопке для его скрытия.
+    var closeBtns = document.getElementsByClassName('close');
+    for (var i = 0; i < closeBtns.length; i++) {
+      //var button = buttons[i];
+      closeBtns[i].onclick =function(){
+        var el = this.parentNode.parentNode;
+        el.parentNode.removeChild(el);
+      }
+    }
+  </script> 
+  
+</body>
+</html>

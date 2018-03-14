@@ -1,0 +1,22 @@
+header {
+  background: gray;
+  color: yellow;
+}
+.wrapper {
+  padding: 15px;
+}
+.navigation {
+  display: flex;
+  flex: 1;
+  justify-content: flex-end;
+}
+
+.navigation li {
+  margin-right: 15px;
+  
+}
+
+.navigation li a {
+  color: yellow;
+  text-decoration: none;
+}

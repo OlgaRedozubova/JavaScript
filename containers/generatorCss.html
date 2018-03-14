@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/_reset.css">
+  <link rel="stylesheet" href="../css/_style.css">    
+  <style>
+    #block {
+      border-radius: 0px 0px 0px 0px;
+      width: 150px;
+      height: 150px;
+      background-color: red;
+    }
+    .text {
+      outline: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+      <div class="wrapper">
+        <nav>
+          <ul class="navigation">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="carousel.html">Slider (Carousel)</a></li>
+            <li><a href="">CSS - генератор</a></li>
+            <li><a href="contextJQuery.html">Context (jQuery)</a></li>
+            <li><a href="context.html">Condext (DOM)</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>  
+
+  <div class="container">
+    <p>LeftTopRadius 
+      <input type="range" class="range ltr" min = "0" max = "100">
+      <input type="text" class="textInput1" value="0">
+    </p>
+    <p>RightTopRadius 
+      <input type="range" class="range rtr" min = "0" max = "100"> 
+      <input type="text" class="textInput2" value="0">
+    </p>
+    <p>LeftBottomRadius 
+      <input type="range" class="range lbr" min = "0" max = "100"> 
+      <input type="text" class="textInput3" value="0">
+    </p>
+    <p>RightBottomRadius 
+      <input type="range" class="range rbr" min = "0" max = "100"> 
+      <input type="text" class="textInput4" value="0">
+    </p>    
+  </div>
+  <div id="block"></div>
+  <script>
+    //CSS - генератор. Получаем данные от пользователя и ставим соответствующие стили.
+    var input1 =document.querySelector('.ltr').value;
+    var input2 =document.querySelector('.rtr').value;
+    var input3 =document.querySelector('.lbr').value;
+    var input4 =document.querySelector('.rbr').value; 
+    
+    var text1 = document.querySelector('.textInput1');
+    var text2 = document.querySelector('.textInput2');
+    var text3 = document.querySelector('.textInput3');
+    var text4 = document.querySelector('.textInput4'); 
+    
+    var inputs = document.querySelectorAll('.range');
+    var block = document.querySelector('#block');
+    
+    text1.value = 90;
+    for (var i = 0; i < inputs.length; i++) {
+      inputs[i].oninput = function() {
+        //console.log(this.className);
+        switch(this.className) {
+          case "range ltr": console.log(this.value); text1.value = this.value; break;
+          case "range rtr": text2.value = this.value; break;
+          case "range lbr": text3.value = this.value; break;
+          case "range rbr": text4.value = this.value; break;          
+          default: break;
+        }
+        var result = block.style.borderRadius = text1.value + 'px ' + text2.value + 'px ' + text3.value + 'px '  + text4.value + 'px';
+      console.log(result);
+      }
+      //console.log(inputs[i]);
+
+    }
+    
+  </script>
+</body>
+
+</html>

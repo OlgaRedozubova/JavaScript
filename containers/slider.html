@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/_reset.css">
+  <link rel="stylesheet" href="../css/_style.css">  
+  <link rel="stylesheet" type="text/css" href="../css/_slider.css">
+</head>
+<body>
+  <header>
+    <div class="wrapper">
+      <nav>
+        <ul class="navigation">
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="">Slider</a></li>
+          <li><a href="carousel.html">Slider (Carousel)</a></li>
+          <li><a href="generatorCss.html">CSS - генератор</a></li>
+          <li><a href="contextJQuery.html">Context (jQuery)</a></li>
+          <li><a href="context.html">Condext (DOM)</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <div class="container">
+    <div class="wrapSlide">
+      <div class="itemSlide">
+        <p class="status">1/5</p>
+        <img src="../img/01.jpg" alt="">
+        <p class="text"> Text slide 1</p>
+      </div>
+      <div class="itemSlide">
+        <p class="status">2/5</p>
+        <img src="../img/02.jpg" alt="">
+        <p class="text"> Text slide 2</p>
+      </div>
+      <div class="itemSlide">
+        <p class="status">3/5</p>
+        <img src="../img/03.jpg" alt="">
+        <p class="text"> Text slide 3</p>
+      </div>          
+      <div class="itemSlide">
+        <p class="status">4/5</p>
+        <img src="../img/04.jpg" alt="">
+        <p class="text"> Text slide 4</p>
+      </div>           
+      <div class="itemSlide">
+        <p class="status">5/5</p>
+        <img src="../img/05.jpg" alt="">
+        <p class="text"> Text slide 5</p>
+      </div>        
+    </div>
+    <button class="prev">Prev</button>
+    <button class="pause">Pause</button>
+    <button class="start">Start</button>
+    <button class="next">Next</button>    
+    <div class="dots">
+      <button class="itemDot"></button>
+      <button class="itemDot"></button>
+      <button class="itemDot"></button>      
+      <button class="itemDot"></button>      
+      <button class="itemDot"></button>            
+    </div>
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>  
+  <script src="../js/_slider.js"></script>
+</body>
+</html>

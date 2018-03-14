@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="../css/_reset.css">
+  <link rel="stylesheet" href="../css/_style.css">    
+  <style>
+    .tab_nav {
+      display: flex;
+      align-content: center;
+    }
+    .tab_nav a{
+      padding: 10px 15px;
+      border-radius: 3px;
+      border: 1px solid grey;
+      outline: none;
+      display: block;
+      font-size: 16px;
+      text-decoration: none;
+      margin-left: 15px;
+      color: black;
+    }
+    .tab_nav a:first-child{
+      margin-left: 0;
+    }
+    .tab_nav a.active {
+      background: black;
+      color: white;
+    }
+    .tabContent {
+      padding: 15px 0;
+    }
+    .tabItem {
+      display: none;
+    }
+    .tabItem.show {
+      display: block;
+    }    
+  </style>
+</head>
+<body>
+  <header>
+      <div class="wrapper">
+        <nav>
+          <ul class="navigation">
+            <li><a href="../index.html">Home</a></li>
+            <li><a href="slider.html">Slider</a></li>
+            <li><a href="carousel.html">Slider (Carousel)</a></li>
+            <li><a href="generatorCss.html">CSS - генератор</a></li>
+            <li><a href="">Context (jQuery)</a></li>
+            <li><a href="context.html">Condext (DOM)</a></li>
+          </ul>
+        </nav>
+      </div>
+    </header>  
+  <div class="container">
+    <div class="tab_nav">
+      <a href="#" class="item_nav active">Nav1</a>
+      <a href="#" class="item_nav">Nav2</a>
+      <a href="#" class="item_nav">Nav3</a>
+    </div>
+    <div class="tabContent">
+      <div class="tabItem show">Tab Content 1</div>
+      <div class="tabItem show">Tab Content 2</div>
+      <div class="tabItem show">Tab Content 3</div>            
+    </div>
+
+    
+  </div>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+
+    var navItem = $('.tab_nav a');
+    var tabItem = $('.tabItem');  
+
+    $(navItem).on('click', function(){
+      if (!$(this).hasClass('active')){
+        var i = $(this).index();
+        navItem.removeClass('active');
+        $(this).addClass("active");
+        $(tabItem).removeClass('show');
+        $(this).addClass('show');
+    
+      }
+    });
+    
+  </script>
+</body>
+
+</html>

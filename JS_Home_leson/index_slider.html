@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      position: relative;
+      max-width: 700px;
+      margin: auto;
+    }
+    .wrapSlide {
+      min-height: 517px;
+      position: relative;
+    }
+    @keyframes fade {
+      from {
+        opacity: .4;
+      }
+      to {
+        opacity: 1;
+      }
+    }
+    .itemSlide {
+      animation: fade;
+      animation-duration: 1.5s;
+      position: relative;
+    }
+    .text {}
+    img {
+      max-width: 100%;
+    }
+    .dots {
+      position: absolute;
+      right: 20px;
+      bottom: 20px;
+      display: flex;
+      align-content: center;
+      background-color: white;
+    }
+    .dots .itemDot {
+      width: 20px;
+      height: 20px;
+      outline: none;
+      border-radius: 50%;
+      margin-left: 10px;
+    }
+    .navigation button {
+      cursor: pointer;
+      outline: none;
+      margin-right: 10px;
+      font-size: 16px;
+      border-radius: 3px;
+      border: 1px solid gray;
+      padding: 12px 25px;
+    }  
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="wrapSlide">
+      <div class="itemSlide">
+        <p class="status">1/3</p>
+        <img src="img\7.jpg" alt="">
+        <p class="text"> Text slide</p>
+      </div>
+      <div class="itemSlide">
+        <p class="status">2/3</p>
+        <img src="img\4.jpg" alt="">
+        <p class="text"> Text slide</p>
+      </div>
+      <div class="itemSlide">
+        <p class="status">3/3</p>
+        <img src="img\5.jpg" alt="">
+        <p class="text"> Text slide</p>
+      </div>              
+    </div>
+    <button class="prev">Prev</button>
+    <button class="pause">Pause</button>
+    <button class="start">Start</button>
+    <button class="next">Next</button>    
+    <div class="dots">
+      <button class="itemDot"></button>
+      <button class="itemDot"></button>
+      <button class="itemDot"></button>      
+    </div>
+  </div> 
+  <script>
+    var indexSlide = 1;
+    var timer;
+
+    showSlide (indexSlide);
+    //startSlide();  
+
+    document.querySelector('.prev').addEventListener('click', () => {showNext(-1)});
+    document.querySelector('.next').addEventListener('click', () => {showNext(1)})
+
+    function showNext (n) {
+      indexSlide += n;
+      showSlide (indexSlide);
+    }
+
+    function showSlide(n) {
+      var slides = document.querySelectorAll('.itemSlide');
+      for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = 'none';
+      }
+      slides[n-1].style.display = 'block';
+      console.log(slides[n-1]);
+    }
+  </script> 
+</body>
+</html>
